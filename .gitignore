@@ -1,15 +1,35 @@
+# Android
 *.iml
 .gradle
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+/.idea
 .DS_Store
 /build
+/app/build
 /captures
 .externalNativeBuild
-.cxx
-local.properties
+
+# Keystore files
+*.jks
+*.keystore
+
+# Proguard
+proguard/
+
+# Log files
+*.log
+
+# NDK
+obj/
+
+# Misc
+*.apk
+*.ap_
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+
+# IDE config
+.idea/
+
