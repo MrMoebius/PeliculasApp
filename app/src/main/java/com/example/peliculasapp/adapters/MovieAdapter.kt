@@ -1,5 +1,6 @@
 package com.example.peliculasapp.adapters
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.peliculasapp.R
 import com.example.peliculasapp.data.Movie
 import android.util.Log
+import java.io.File
 
 class MovieAdapter(
     private val movies: List<Movie>,
@@ -21,9 +23,20 @@ class MovieAdapter(
         private val rating: TextView = itemView.findViewById(R.id.movieRating)
 
         fun bind(movie: Movie) {
-            Log.d("MovieAdapter", "Cargando película: ${movie.title}, posterResId: ${movie.posterResId}, ID: ${movie.id}")
+            Log.d("MovieAdapter", "Cargando película: ${movie.title}, posterFileName: ${movie.posterFileName}, ID: ${movie.id}")
 
-            poster.setImageResource(movie.posterResId)
+            // Cargar imagen: primero intenta cargar la imagen guardada
+            if (movie.posterFileName.isNotEmpty()) {
+                val posterFile = File(itemView.context.filesDir, movie.posterFileName)
+                if (posterFile.exists()) {
+                    poster.setImageURI(Uri.fromFile(posterFile))
+                } else {
+                    poster.setImageResource(movie.posterResId)
+                }
+            } else {
+                poster.setImageResource(movie.posterResId)
+            }
+
             title.text = movie.title
             year.text = "Año: ${movie.year}"
             rating.text = "${movie.rating}⭐"

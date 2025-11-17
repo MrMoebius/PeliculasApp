@@ -2,6 +2,7 @@ package com.example.peliculasapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -26,6 +27,14 @@ class MovieListActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerViewMovies)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // Configurar el botón para agregar película
+        val btnAddMovie: Button = findViewById(R.id.buttonAddMovie)
+        btnAddMovie.setOnClickListener {
+            val intent = Intent(this, MovieEditActivity::class.java)
+            intent.putExtra("is_new", true)
+            startActivity(intent)
+        }
+
         setupRecyclerView()
     }
 
@@ -48,8 +57,10 @@ class MovieListActivity : AppCompatActivity() {
             intent.putExtra("movie_synopsis", movie.synopsis)
             intent.putExtra("movie_rating", movie.rating)
             intent.putExtra("movie_cast", movie.cast)
+            intent.putExtra("movie_poster_file", movie.posterFileName)  // ← AGREGA ESTO
             startActivity(intent)
         }
+
         recyclerView.adapter = adapter
     }
 }

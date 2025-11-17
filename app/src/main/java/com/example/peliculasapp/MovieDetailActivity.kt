@@ -1,17 +1,31 @@
 package com.example.peliculasapp
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.io.File
 
 class MovieDetailActivity : AppCompatActivity() {
     private var movieId: Int = -1
+    private var posterFileName: String = ""
+
+    // Activity Result API (moderno)
+    private val editMovieLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            // Recargar detalles cuando regresa de editar
+            displayMovieDetails()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +54,8 @@ class MovieDetailActivity : AppCompatActivity() {
                 intent.putExtra("movie_synopsis", movie.synopsis)
                 intent.putExtra("movie_rating", movie.rating)
                 intent.putExtra("movie_cast", movie.cast)
-                startActivityForResult(intent, EDIT_REQUEST_CODE)
+                intent.putExtra("movie_poster_file", movie.posterFileName)
+                editMovieLauncher.launch(intent)  // ← REEMPLAZA startActivityForResult
             }
         }
 
@@ -51,7 +66,6 @@ class MovieDetailActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Recargar detalles cada vez que vuelves a esta pantalla
         displayMovieDetails()
     }
 
@@ -65,16 +79,24 @@ class MovieDetailActivity : AppCompatActivity() {
             val rating: TextView = findViewById(R.id.detailRating)
             val cast: TextView = findViewById(R.id.detailCast)
 
-            poster.setImageResource(movie.posterResId)
+            // Cargar imagen
+            if (movie.posterFileName.isNotEmpty()) {
+                val posterFile = File(filesDir, movie.posterFileName)
+                if (posterFile.exists()) {
+                    poster.setImageURI(Uri.fromFile(posterFile))
+                } else {
+                    poster.setImageResource(movie.posterResId)
+                }
+            } else {
+                poster.setImageResource(movie.posterResId)
+            }
+
+            posterFileName = movie.posterFileName
             title.text = movie.title
             year.text = "Año: ${movie.year}"
             synopsis.text = movie.synopsis
             rating.text = "Puntuación: ${movie.rating}/10⭐"
             cast.text = "Reparto: ${movie.cast}"
         }
-    }
-
-    companion object {
-        const val EDIT_REQUEST_CODE = 1
     }
 }

@@ -1,16 +1,34 @@
 package com.example.peliculasapp
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.peliculasapp.data.Movie
+import java.io.File
+import java.io.FileOutputStream
 
 class MovieEditActivity : AppCompatActivity() {
+    private var posterUri: Uri? = null
+    private var posterFileName: String? = null
+    private lateinit var posterImageView: ImageView
+
+    private val galleryLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        uri?.let {
+            posterUri = it
+            posterImageView.setImageURI(it)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,6 +39,7 @@ class MovieEditActivity : AppCompatActivity() {
             insets
         }
 
+        val isNew = intent.getBooleanExtra("is_new", false)
         val movieId = intent.getIntExtra("movie_id", -1)
         val movieTitle = intent.getStringExtra("movie_title") ?: ""
         val movieYear = intent.getIntExtra("movie_year", 0)
@@ -28,6 +47,7 @@ class MovieEditActivity : AppCompatActivity() {
         val movieSynopsis = intent.getStringExtra("movie_synopsis") ?: ""
         val movieRating = intent.getDoubleExtra("movie_rating", 0.0)
         val movieCast = intent.getStringExtra("movie_cast") ?: ""
+        posterFileName = intent.getStringExtra("movie_poster_file")
 
         val editTitle: EditText = findViewById(R.id.editTitle)
         val editYear: EditText = findViewById(R.id.editYear)
@@ -36,33 +56,89 @@ class MovieEditActivity : AppCompatActivity() {
         val editCast: EditText = findViewById(R.id.editCast)
         val btnSave: Button = findViewById(R.id.btnSave)
         val btnHome: Button = findViewById(R.id.btnHome)
+        val btnSelectPoster: Button = findViewById(R.id.btnSelectPoster)
+        posterImageView = findViewById(R.id.posterPreview)
 
-        editTitle.setText(movieTitle)
-        editYear.setText(movieYear.toString())
-        editSynopsis.setText(movieSynopsis)
-        editRating.setText(movieRating.toString())
-        editCast.setText(movieCast)
+        if (isNew) {
+            editTitle.setText("")
+            editYear.setText("")
+            editSynopsis.setText("")
+            editRating.setText("")
+            editCast.setText("")
+            posterFileName = null
+        } else {
+            editTitle.setText(movieTitle)
+            editYear.setText(if (movieYear != 0) movieYear.toString() else "")
+            editSynopsis.setText(movieSynopsis)
+            editRating.setText(if (movieRating != 0.0) movieRating.toString() else "")
+            editCast.setText(movieCast)
+
+            // Cargar imagen guardada si existe
+            if (!posterFileName.isNullOrEmpty()) {
+                val posterFile = File(filesDir, posterFileName!!)
+                if (posterFile.exists()) {
+                    posterImageView.setImageURI(Uri.fromFile(posterFile))
+                }
+            }
+        }
+
+        btnSelectPoster.setOnClickListener {
+            galleryLauncher.launch("image/*")
+        }
 
         btnSave.setOnClickListener {
             val newTitle = editTitle.text.toString()
-            val newYear = editYear.text.toString().toIntOrNull() ?: movieYear
+            val newYear = editYear.text.toString().toIntOrNull() ?: 0
             val newSynopsis = editSynopsis.text.toString()
-            val newRating = editRating.text.toString().toDoubleOrNull() ?: movieRating
+            val newRating = editRating.text.toString().toDoubleOrNull() ?: 0.0
             val newCast = editCast.text.toString()
 
-            val updatedMovie = Movie(movieId, newTitle, newYear, moviePoster, newSynopsis, newRating, newCast)
-            MovieManager.updateMovie(updatedMovie)
+            // Guardar imagen si fue seleccionada
+            val savedFileName = if (posterUri != null) {
+                savePosterImage(posterUri!!)
+            } else {
+                posterFileName ?: ""
+            }
 
-            // Simplemente cerrar esta Activity, no crear una nueva
+            if (isNew) {
+                val newMovie = Movie(
+                    0, newTitle, newYear, 0, newSynopsis, newRating, newCast,
+                    posterFileName = savedFileName
+                )
+                MovieManager.addMovie(newMovie)
+            } else {
+                val updatedMovie = Movie(
+                    movieId, newTitle, newYear, moviePoster, newSynopsis, newRating, newCast,
+                    posterFileName = savedFileName
+                )
+                MovieManager.updateMovie(updatedMovie)
+            }
+
             finish()
         }
 
         btnHome.setOnClickListener {
-            // Ir a lista y limpiar la pila
             val intent = Intent(this, MovieListActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun savePosterImage(imageUri: Uri): String {
+        val fileName = "poster_${System.currentTimeMillis()}.jpg"
+        val file = File(filesDir, fileName)
+
+        try {
+            val inputStream = contentResolver.openInputStream(imageUri)
+            val outputStream = FileOutputStream(file)
+            inputStream?.copyTo(outputStream)
+            inputStream?.close()
+            outputStream.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return fileName
     }
 }
