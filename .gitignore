@@ -1,0 +1,40 @@
+# Gradle
+.gradle/
+build/
+*.apk
+*.ap_
+*.aab
+
+# Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+local.properties
+
+# Build
+bin/
+gen/
+out/
+
+# Misc
+*.swp
+*.swo
+*~
+.classpath
+.project
+.settings/
+*.sublime-workspace
+
+# Node (si usas React Native)
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.vscode/
+.vs/
