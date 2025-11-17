@@ -59,6 +59,20 @@ class MovieDetailActivity : AppCompatActivity() {
             }
         }
 
+        val btnDelete: Button = findViewById(R.id.btnDelete)
+        btnDelete.setOnClickListener {
+            // Mostrar diálogo de confirmación
+            androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Eliminar película")
+                .setMessage("¿Estás seguro de que deseas eliminar esta película?")
+                .setPositiveButton("Sí, eliminar") { _, _ ->
+                    MovieManager.deleteMovie(movieId)
+                    finish()  // Regresa a la lista
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
+
         btnBack.setOnClickListener {
             finish()
         }

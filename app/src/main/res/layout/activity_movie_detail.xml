@@ -250,6 +250,18 @@
             android:textColor="@android:color/white"
             android:backgroundTint="@color/text_secondary"
             />
+        <!-- Botón Eliminar (color rojo) -->
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Eliminar"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:backgroundTint="#D32F2F" />
+
 
     </LinearLayout>
 

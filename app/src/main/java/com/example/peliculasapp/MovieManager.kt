@@ -85,5 +85,9 @@ object MovieManager {
         val file = File(context.filesDir, fileName)
         return if (file.exists()) Uri.fromFile(file) else null
     }
+    fun deleteMovie(movieId: Int) {
+        movies.removeAll { it.id == movieId }
+        saveMoviesToFile()
+    }
 
 }
