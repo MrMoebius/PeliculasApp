@@ -1,0 +1,32 @@
+<resources>
+    <!-- Paleta base -->
+    <color name="primary">#59023B</color>            <!-- Morado principal -->
+    <color name="primary_light">#8C0343</color>      <!-- Morado + claro (variante/hover) -->
+    <color name="primary_dark">#330125</color>       <!-- Morado más oscuro -->
+
+    <color name="secondary">#0477BF</color>          <!-- Azul medio principal -->
+    <color name="secondary_light">#07C7F2</color>    <!-- Azul claro (variante/hover) -->
+    <color name="secondary_dark">#023373</color>     <!-- Azul muy oscuro -->
+
+    <color name="accent">#F28322</color>             <!-- Naranja principal/acento -->
+    <color name="accent_light">#FFB46B</color>       <!-- Naranja claro, hover o ripple -->
+    <color name="accent_dark">#B75C0B</color>        <!-- Naranja oscuro, estado activo -->
+
+    <!-- Usos genéricos/fondos y textos -->
+    <color name="bg_light">#07C7F2</color>           <!-- Fondo general, cards -->
+    <color name="bg_dark">#023373</color>            <!-- Fondo oscuro alternativo -->
+
+    <color name="text_primary">#023373</color>       <!-- Texto importante -->
+    <color name="text_secondary">#0477BF</color>     <!-- Texto secundario -->
+    <color name="text_on_primary">#FFFFFF</color>    <!-- Texto sobre primary -->
+    <color name="text_on_secondary">#FFFFFF</color>  <!-- Texto sobre secondary/accent -->
+
+    <color name="rating_color">#F28322</color>       <!-- Valoración -->
+    <color name="error_color">#C72C41</color>        <!-- Rojo para errores -->
+    <color name="success_color">#19C37D</color>      <!-- Verde para éxito -->
+    <color name="warning_color">#FFB46B</color>      <!-- Naranja claro para advertencias -->
+
+    <color name="light_gray">#F4F4F4</color>         <!-- Fondo neutro para campos de texto, border, etc. -->
+    <color name="gray">#BFC9CA</color>              <!-- Bordes y separadores -->
+    <color name="dark_gray">#313131</color>         <!-- Texto desactivado, fondo de footers -->
+</resources>
