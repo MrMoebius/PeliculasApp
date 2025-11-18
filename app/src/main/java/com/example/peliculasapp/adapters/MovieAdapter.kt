@@ -26,7 +26,7 @@ class MovieAdapter(
             Log.d("MovieAdapter", "Cargando película: ${movie.title}, posterFileName: ${movie.posterFileName}, ID: ${movie.id}")
 
             // Cargar imagen: primero intenta cargar la imagen guardada
-            if (movie.posterFileName.isNotEmpty()) {
+            if (!movie.posterFileName.isNullOrEmpty()) {
                 val posterFile = File(itemView.context.filesDir, movie.posterFileName)
                 if (posterFile.exists()) {
                     poster.setImageURI(Uri.fromFile(posterFile))

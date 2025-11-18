@@ -54,7 +54,7 @@ class MovieDetailActivity : AppCompatActivity() {
                 intent.putExtra("movie_synopsis", movie.synopsis)
                 intent.putExtra("movie_rating", movie.rating)
                 intent.putExtra("movie_cast", movie.cast)
-                intent.putExtra("movie_poster_file", movie.posterFileName)
+                intent.putExtra("movie_poster_file", movie.posterFileName ?: "")
                 editMovieLauncher.launch(intent)  // ← REEMPLAZA startActivityForResult
             }
         }
@@ -93,8 +93,8 @@ class MovieDetailActivity : AppCompatActivity() {
             val rating: TextView = findViewById(R.id.detailRating)
             val cast: TextView = findViewById(R.id.detailCast)
 
-            // Cargar imagen
-            if (movie.posterFileName.isNotEmpty()) {
+            // Cargar imagen con protección contra null
+            if (!movie.posterFileName.isNullOrEmpty()) {
                 val posterFile = File(filesDir, movie.posterFileName)
                 if (posterFile.exists()) {
                     poster.setImageURI(Uri.fromFile(posterFile))
@@ -105,7 +105,7 @@ class MovieDetailActivity : AppCompatActivity() {
                 poster.setImageResource(movie.posterResId)
             }
 
-            posterFileName = movie.posterFileName
+            posterFileName = movie.posterFileName ?: ""
             title.text = movie.title
             year.text = "Año: ${movie.year}"
             synopsis.text = movie.synopsis

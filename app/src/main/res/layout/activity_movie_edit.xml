@@ -41,14 +41,15 @@
 
     </LinearLayout>
 
-    <!-- ScrollView para contenido -->
-    <ScrollView
+    <!-- NestedScrollView (mejor para teclado) -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerEdit"
-        app:layout_constraintBottom_toTopOf="@id/buttonContainer">
+        app:layout_constraintBottom_toTopOf="@id/buttonContainer"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -238,6 +239,7 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
+                android:layout_marginBottom="100dp"
                 app:cardBackgroundColor="@android:color/white">
 
                 <LinearLayout
@@ -272,7 +274,7 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <!-- Botones en la parte inferior -->
     <LinearLayout
