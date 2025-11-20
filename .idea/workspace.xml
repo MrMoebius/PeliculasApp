@@ -20,6 +20,21 @@
           <theme>@style/Theme.PeliculasApp</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/posteravatar.xml">
+        <config>
+          <theme>@style/Theme.PeliculasApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/posterforrestgump.xml">
+        <config>
+          <theme>@style/Theme.PeliculasApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/postertitanic.xml">
+        <config>
+          <theme>@style/Theme.PeliculasApp</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_movie_detail.xml">
         <config>
           <theme>@style/Theme.PeliculasApp</theme>
@@ -37,7 +52,6 @@
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_movie.xml">
         <config>
-          <state>Portrait</state>
           <theme>@style/Theme.PeliculasApp</theme>
         </config>
       </layout>
@@ -54,12 +68,26 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WORKFLOW.md" beforeDir="false" afterPath="$PROJECT_DIR$/WORKFLOW.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MovieDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MovieDetailActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/adapters/MovieAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/adapters/MovieAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_movie_edit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_movie_edit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MovieListActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MovieListActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MovieManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MovieManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/posteravatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/postercaballerooscuro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/posterforrestgump.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/postergladiator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/posterinterestellar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/postermatrix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/posterorigen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/posterpulpfiction.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/postershawshank.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/postertitanic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_movie_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_movie_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +97,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=cejnqwkrov7ts44t)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\di_os\.android\avd\Pixel_4a.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -106,6 +134,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/WORKFLOW.md" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/build.gradle.kts" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MovieDetailActivity.kt" root0="SKIP_INSPECTION" />
@@ -114,6 +143,7 @@
     <setting file="file://$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MovieManager.kt" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/MyApplication.kt" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/com/example/peliculasapp/adapters/MovieAdapter.kt" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/drawable/posterforrestgump.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_movie_detail.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_movie_edit.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_movie_list.xml" root0="SKIP_INSPECTION" />
@@ -126,6 +156,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="35QJVyyxAvpOI1JNo3xEzECWTJM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="autoscrollFromSource" value="true" />
@@ -143,6 +176,7 @@
     &quot;ResourceManagerPrefKey.ResourceType&quot;: &quot;COLOR&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
@@ -150,12 +184,16 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/di_os/Music/AndroidStudio/PeliculasApp/app/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/di_os/Music/AndroidStudio/PeliculasApp&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;memory.settings&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="android.template.1712436758">
       <recent name="com.example.peliculasapp" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\di_os\Music\AndroidStudio\PeliculasApp\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\di_os\Music\AndroidStudio\PeliculasApp\app\src\main\res\drawable" />
@@ -265,12 +303,12 @@
       <map>
         <entry key="com.example.peliculasapp">
           <value>
-            <CheckInfo lastCheckTimestamp="1763137716722" />
+            <CheckInfo lastCheckTimestamp="1763643256798" />
           </value>
         </entry>
         <entry key="com.example.peliculasapp.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1763137716723" />
+            <CheckInfo lastCheckTimestamp="1763643256800" />
           </value>
         </entry>
       </map>

@@ -1,6 +1,6 @@
 <resources>
     <!-- Paleta base -->
-    <color name="primary">#59023B</color>            <!-- Morado principal -->
+    <color name="primary">#466C8C</color>            <!-- Morado principal -->
     <color name="primary_light">#8C0343</color>      <!-- Morado + claro (variante/hover) -->
     <color name="primary_dark">#330125</color>       <!-- Morado más oscuro -->
 
@@ -13,7 +13,7 @@
     <color name="accent_dark">#B75C0B</color>        <!-- Naranja oscuro, estado activo -->
 
     <!-- Usos genéricos/fondos y textos -->
-    <color name="bg_light">#07C7F2</color>           <!-- Fondo general, cards -->
+    <color name="bg_light">#13DCF2</color>           <!-- Fondo general, cards -->
     <color name="bg_dark">#023373</color>            <!-- Fondo oscuro alternativo -->
 
     <color name="text_primary">#023373</color>       <!-- Texto importante -->

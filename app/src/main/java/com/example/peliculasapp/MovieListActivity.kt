@@ -57,7 +57,7 @@ class MovieListActivity : AppCompatActivity() {
             intent.putExtra("movie_synopsis", movie.synopsis)
             intent.putExtra("movie_rating", movie.rating)
             intent.putExtra("movie_cast", movie.cast)
-            intent.putExtra("movie_poster_file", movie.posterFileName)  // ← AGREGA ESTO
+            intent.putExtra("movie_poster_file", movie.posterFileName)
             startActivity(intent)
         }
 

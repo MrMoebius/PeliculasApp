@@ -47,7 +47,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descubre tus películas favoritas"
+                android:text="Guarda tus películas favoritas"
                 android:textSize="14sp"
                 android:textColor="@android:color/white"
                 android:textAlignment="viewStart"

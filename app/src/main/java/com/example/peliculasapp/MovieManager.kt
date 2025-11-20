@@ -79,7 +79,7 @@ object MovieManager {
             e.printStackTrace()
         }
     }
-    // En MovieManager, agrega una función para obtener la URI del archivo guardado
+    // Función para obtener la URI del archivo guardado
     fun getPosterUri(fileName: String): Uri? {
         if (fileName.isEmpty()) return null
         val file = File(context.filesDir, fileName)

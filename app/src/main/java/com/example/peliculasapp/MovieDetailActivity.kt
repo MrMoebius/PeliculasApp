@@ -22,7 +22,7 @@ class MovieDetailActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
-            // Recargar detalles cuando regresa de editar
+            // Recarga detalles cuando regresa de editar
             displayMovieDetails()
         }
     }
@@ -55,7 +55,7 @@ class MovieDetailActivity : AppCompatActivity() {
                 intent.putExtra("movie_rating", movie.rating)
                 intent.putExtra("movie_cast", movie.cast)
                 intent.putExtra("movie_poster_file", movie.posterFileName ?: "")
-                editMovieLauncher.launch(intent)  // ← REEMPLAZA startActivityForResult
+                editMovieLauncher.launch(intent)  // <-- REEMPLAZA startActivityForResult(deprecated)
             }
         }
 
